@@ -2,7 +2,14 @@ import { Instagram, MapPin, Youtube } from "lucide-react";
 
 import { Logo } from "./Logo";
 import { WhatsAppIcon } from "./icons";
-import { SERVICES } from "./data";
+import {
+  SERVICES,
+  STUDIO_ADDRESS_LINES,
+  STUDIO_MAPS_URL,
+  STUDIO_PHONE_DISPLAY,
+  STUDIO_PHONE_TEL,
+  STUDIO_WHATSAPP_URL,
+} from "./data";
 
 const EXPLORE_LINKS = [
   { label: "Home", href: "#home" },
@@ -40,12 +47,15 @@ export function Footer() {
               >
                 <Youtube className="h-4 w-4" />
               </span>
-              <span
+              <a
+                href={STUDIO_WHATSAPP_URL}
+                target="_blank"
+                rel="noreferrer"
                 aria-label="WhatsApp"
-                className="rounded-full border border-border p-2.5 text-foreground/80"
+                className="rounded-full border border-border p-2.5 text-foreground/80 transition-colors hover:border-primary/60 hover:text-primary"
               >
                 <WhatsAppIcon className="h-4 w-4" />
-              </span>
+              </a>
             </div>
           </div>
 
@@ -92,7 +102,33 @@ export function Footer() {
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2.5">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                Tiruppur, Tamil Nadu, India
+                <a
+                  href={STUDIO_MAPS_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="leading-relaxed transition-colors hover:text-primary"
+                >
+                  {STUDIO_ADDRESS_LINES.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </a>
+              </li>
+              <li>
+                <a href={`tel:${STUDIO_PHONE_TEL}`} className="transition-colors hover:text-primary">
+                  {STUDIO_PHONE_DISPLAY}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={STUDIO_WHATSAPP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transition-colors hover:text-primary"
+                >
+                  WhatsApp — {STUDIO_PHONE_DISPLAY}
+                </a>
               </li>
               <li>
                 <a
@@ -117,7 +153,7 @@ export function Footer() {
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-6 text-xs text-muted-foreground lg:px-8">
           <p>Copyright © 2026 GYROZ STUDIO. All Rights Reserved.</p>
-          <p>Tiruppur, Tamil Nadu, India</p>
+          <p>Tiruppur, Tamil Nadu 641604</p>
         </div>
       </div>
     </footer>

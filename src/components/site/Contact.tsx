@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { CheckCircle2, Instagram, MapPin, Youtube } from "lucide-react";
+import { CheckCircle2, Instagram, MapPin, Phone, Youtube } from "lucide-react";
 
 import { submitEnquiry } from "@/lib/enquiry.functions";
 import { enquirySchema, SERVICE_OPTIONS, type EnquiryInput } from "@/lib/enquiry";
@@ -8,7 +8,14 @@ import { cn } from "@/lib/utils";
 
 import { Reveal } from "./Reveal";
 import { WhatsAppIcon } from "./icons";
-import { CONTACT_BG_IMAGE } from "./data";
+import {
+  CONTACT_BG_IMAGE,
+  STUDIO_ADDRESS_LINES,
+  STUDIO_MAPS_URL,
+  STUDIO_PHONE_DISPLAY,
+  STUDIO_PHONE_TEL,
+  STUDIO_WHATSAPP_URL,
+} from "./data";
 
 type FieldErrors = Partial<Record<keyof EnquiryInput, string>>;
 
@@ -95,7 +102,32 @@ export function Contact() {
               </span>
               <div>
                 <p className="text-sm font-semibold text-foreground">Location</p>
-                <p className="text-sm text-muted-foreground">Tiruppur, Tamil Nadu, India</p>
+                <a
+                  href={STUDIO_MAPS_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm leading-relaxed text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {STUDIO_ADDRESS_LINES.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </a>
+              </div>
+            </li>
+            <li className="flex items-start gap-4">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-primary">
+                <Phone className="h-4 w-4" />
+              </span>
+              <div>
+                <p className="text-sm font-semibold text-foreground">Phone</p>
+                <a
+                  href={`tel:${STUDIO_PHONE_TEL}`}
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {STUDIO_PHONE_DISPLAY}
+                </a>
               </div>
             </li>
             <li className="flex items-start gap-4">
@@ -129,7 +161,14 @@ export function Contact() {
               </span>
               <div>
                 <p className="text-sm font-semibold text-foreground">WhatsApp</p>
-                <p className="text-sm text-muted-foreground">Message us through the enquiry form and we'll continue on WhatsApp</p>
+                <a
+                  href={STUDIO_WHATSAPP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {STUDIO_PHONE_DISPLAY}
+                </a>
               </div>
             </li>
           </ul>

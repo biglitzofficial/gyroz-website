@@ -1,0 +1,12 @@
+node_modules
+.git
+.output
+.nitro
+.tanstack
+dist
+our-studio
+*.md
+.env
+.env.*
+!.env.example
+bun.lock

@@ -8,10 +8,10 @@ import productVideoImg from "@/assets/svc-product-video.jpg";
 import aboutStudioImg from "@/assets/about-studio.jpg";
 import aboutProductionImg from "@/assets/about-production.jpg";
 import aboutTeamImg from "@/assets/about-team.jpg";
-import studioPodcastImg from "@/assets/studio-podcast.jpg";
-import studioCamerasImg from "@/assets/studio-cameras.jpg";
-import studioLightingImg from "@/assets/studio-lighting.jpg";
-import studioMicsImg from "@/assets/studio-mics.jpg";
+import studioMain1Img from "@/assets/studio-main-1.webp";
+import studioMain2Img from "@/assets/studio-main-2.webp";
+import studioDetail1Img from "@/assets/studio-detail-1.jpg";
+import studioDetail2Img from "@/assets/studio-detail-2.jpg";
 import approachListenImg from "@/assets/approach-listen.jpg";
 import approachTeamImg from "@/assets/approach-team.jpg";
 import approachRootedImg from "@/assets/approach-rooted.jpg";
@@ -98,11 +98,23 @@ export const STUDIO_HIGHLIGHTS = [
 ] as const;
 
 export const STUDIO_GALLERY = {
-  podcast: studioPodcastImg,
-  cameras: studioCamerasImg,
-  lighting: studioLightingImg,
-  mics: studioMicsImg,
+  main1: studioMain1Img,
+  main2: studioMain2Img,
+  detail1: studioDetail1Img,
+  detail2: studioDetail2Img,
 } as const;
+
+export const STUDIO_ADDRESS_LINES = [
+  "Kottai Mariamman Kovil, 270",
+  "opp. Dharapuram Road, Aranmanai Pudur",
+  "Tiruppur, Tamil Nadu 641604",
+] as const;
+
+export const STUDIO_ADDRESS = STUDIO_ADDRESS_LINES.join(", ");
+export const STUDIO_PHONE_DISPLAY = "074182 26045";
+export const STUDIO_PHONE_TEL = "+917418226045";
+export const STUDIO_WHATSAPP_URL = "https://wa.me/917418226045";
+export const STUDIO_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(STUDIO_ADDRESS)}`;
 
 export const APPROACH = [
   {

@@ -1,27 +1,18 @@
-/**
- * TEMPORARY typographic wordmark.
- *
- * The original multicolour GYROZ STUDIO logo must be used here once the
- * brand files are supplied. Do not restyle this into a permanent logo —
- * replace the whole component with the real logo asset.
- */
+import logo from "@/assets/gyroz-logo.png";
+
+import { cn } from "@/lib/utils";
+
 export function Logo({ large = false }: { large?: boolean }) {
   return (
-    <span className="inline-flex select-none items-baseline gap-2 whitespace-nowrap">
-      <span
-        className={`font-display font-extrabold tracking-tight text-foreground ${
-          large ? "text-4xl" : "text-2xl"
-        }`}
-      >
-        GYROZ
-      </span>
-      <span
-        className={`font-semibold uppercase tracking-[0.35em] text-primary ${
-          large ? "text-sm" : "text-[10px]"
-        }`}
-      >
-        Studio
-      </span>
-    </span>
+    <img
+      src={logo}
+      alt="GYROZ STUDIO — Ideas, Shoot, Edit, Publish, Grow"
+      width={720}
+      height={240}
+      className={cn(
+        "w-auto rounded-md object-contain object-left-top",
+        large ? "h-14 md:h-16" : "h-8 md:h-9",
+      )}
+    />
   );
 }

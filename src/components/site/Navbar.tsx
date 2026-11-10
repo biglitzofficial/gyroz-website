@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 
 import { Logo } from "./Logo";
 import { WhatsAppIcon } from "./icons";
+import { STUDIO_WHATSAPP_URL } from "./data";
 
 const LINKS = [
   { label: "Home", href: "#home" },
@@ -38,12 +39,12 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "border-b border-border bg-background/90 py-3 shadow-lg shadow-black/30 backdrop-blur-md"
-          : "bg-transparent py-5",
+          ? "border-b border-border bg-background/90 py-2 shadow-lg shadow-black/30 backdrop-blur-md"
+          : "bg-transparent py-2.5",
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 lg:px-8">
-        <a href="#home" aria-label="Gyroz Studio home">
+      <div className="flex items-center justify-between px-3 lg:px-4">
+        <a href="#home" aria-label="Gyroz Studio home" className="shrink-0">
           <Logo />
         </a>
 
@@ -70,7 +71,9 @@ export function Navbar() {
             <Instagram className="h-4 w-4" />
           </a>
           <a
-            href="#contact"
+            href={STUDIO_WHATSAPP_URL}
+            target="_blank"
+            rel="noreferrer"
             aria-label="Chat on WhatsApp"
             className="rounded-full border border-border p-2.5 text-foreground/80 transition-colors duration-200 hover:border-primary/60 hover:text-primary"
           >
@@ -124,7 +127,9 @@ export function Navbar() {
             <Instagram className="h-5 w-5" />
           </a>
           <a
-            href="#contact"
+            href={STUDIO_WHATSAPP_URL}
+            target="_blank"
+            rel="noreferrer"
             aria-label="WhatsApp"
             onClick={() => setOpen(false)}
             className="rounded-full border border-border p-3 text-foreground/80 hover:text-primary"
